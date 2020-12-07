@@ -1,0 +1,22 @@
+<!-- 投稿一覧 -->
+<h1>Books</h1>
+<table>
+	<thead>
+		<td>
+			<th>title</th>
+			<th>body</th>
+			<th colspan = "3"></th>
+		</td>
+	</thead>
+</table>
+<!-- 投稿欄 -->
+<h2>New book</h2>
+<%= form_for(@book) do |f| %>
+	<label>Title</label>
+	<%= f.text_field :title %><br>
+
+	<label>Body</label>
+	<%= f.text_area :body %>
+
+	<%= f.submit "Create Book" %>
+<% end %>
