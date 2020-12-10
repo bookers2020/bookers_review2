@@ -8,4 +8,24 @@ class BooksController < ApplicationController
 		@books = Book.all
 	end
 
+	def create
+		@book = Book.new
+		if @book.save
+			redirect_to book_path
+		else
+			render :index
+		end
+	end
+
+	def destroy
+		book = Book.find(params[:id])
+		if book.destroy
+			redirect_to books_path(book)
+		end
+	end
+
+	private
+	def book_params
+		params.require(:book).permit(:title, :body)
+	end
 end
