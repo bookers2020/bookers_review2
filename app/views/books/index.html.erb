@@ -8,14 +8,23 @@
 			<th colspan = "3"></th>
 		</td>
 	</thead>
+	<tbody>
+		<% @books.each do |book|%>
+		<td>
+			<th><%= book.title %></th>
+			<th><%= book.body %></th>
+			<th></th>
+		</td>
+		<% end %>
+	</tbody>
 </table>
 <!-- 投稿欄 -->
 <h2>New book</h2>
 <%= form_for(@book) do |f| %>
-	<label>Title</label>
+	<label>Title:</label>
 	<%= f.text_field :title %><br>
 
-	<label>Body</label>
+	<label>Body:</label>
 	<%= f.text_area :body %>
 
 	<%= f.submit "Create Book" %>
