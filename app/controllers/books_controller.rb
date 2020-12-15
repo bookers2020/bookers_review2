@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 		@book = Book.new(book_params)
 		@books = Book.all
 		if @book.save
-			redirect_to books_path(@book.id)
+			redirect_to book_path(@book.id)
 		else
 			render :index
 		end
