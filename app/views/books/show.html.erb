@@ -2,4 +2,8 @@
 <h3>タイトル：<%= @book.title %></h3>
 <h3>レビュー：</h3>
 <h3><%= @book.body %></h3>
-<p><%= link_to "編集", edit_book_path %>|<%= link_to "削除", book_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></p>
+<% if user_signed_in? %>
+	<% if @book.user == current_user %>
+		<p><%= link_to "編集", edit_book_path %>|<%= link_to "削除", book_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></p>
+	<% end %>
+<% end %>
