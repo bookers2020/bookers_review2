@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main style="height: 600px;">
+      <%= yield %>
+    </main>
+    <footer>
+      <% if user_signed_in? %>
+        <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+      <% end %>
+    </footer>
   </body>
 </html>
