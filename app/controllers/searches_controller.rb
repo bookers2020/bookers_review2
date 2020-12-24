@@ -1,11 +1,16 @@
 class SearchesController < ApplicationController
+	# 検索方法を複数の方式を採用、選択してサーチ実行
   def search
-    type = params[:search_type]
     method = params[:search_method]
     word = params[:search_word]
-    if type == "book_match"
-      @books = Book.search(type, method, word)
-      render template: "#"
-    end
+      @books = Book.search(method, word)
+      render template: "books/search_result"
+  end
+
+  def presearch
+    method = params[:search_method]
+    word = params[:search_word]
+      @books = Book.search(method, word)
+      render template: "books/search"
   end
 end
