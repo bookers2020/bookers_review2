@@ -4,5 +4,5 @@
 <% if user_signed_in? %>
 	<%= link_to "レビューを投稿する・探す", books_path %>
 <% else %>
-	<%= link_to "ログイン", new_user_session_path %>／<%= link_to "レビューを探す", books_path %>
+	<%= link_to "ログイン", new_user_session_path %>／<%= link_to "レビューを探す", presearch_path %>
 <% end %>
